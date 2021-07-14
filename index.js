@@ -6,25 +6,25 @@ import { search } from "./pages/search.js";
 const routes = [
   {
     match: (url) => {
-      return url === "/TheMovieDB-PoC";
+      return url === "/TheMovieDB-PoC/";
     },
     renderRoute: popular,
   },
   {
     match: (url) => {
-      return url.includes("/movies");
+      return url.includes("/TheMovieDB-PoC/movies");
     },
     renderRoute: movie,
   },
   {
     match: (url) => {
-      return url.includes("/bookmarks");
+      return url.includes("/TheMovieDB-PoC/bookmarks");
     },
     renderRoute: bookmarks,
   },
   {
     match: (url) => {
-      return url.includes("/search");
+      return url.includes("/TheMovieDB-PoC/search");
     },
     renderRoute: search,
   },
