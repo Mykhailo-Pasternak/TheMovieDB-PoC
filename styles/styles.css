@@ -1,0 +1,202 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(56, 56, 56);
+  font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+
+
+ /*   head   */
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: rgb(0, 0, 0);
+  color: orange;
+}
+.header-title{
+  font-size: 50px;
+  font-weight: 700;
+}
+nav {
+  margin: 15px;
+  display: flex;
+}
+.button-nav {
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 7px;
+  color: rgb(187, 184, 184);
+  padding: 10px;
+  background: rgb(56, 56, 56);
+  border: 2px solid rgb(104, 103, 103);
+}
+.button-nav:hover{
+  color: orange;
+  border: 2px solid rgb(167, 166, 166);
+}
+
+
+#input {
+  width: 300px;
+  height: 50px;
+  background: rgb(56, 56, 56);
+  border: 2px solid rgb(104, 103, 103);
+  border-radius: 7px;
+  color: orange;
+  font-size: 18px;
+}
+#input:hover{
+  color: orange;
+  border: 2px solid rgb(167, 166, 166);
+}
+#input:active{
+  color:orangered;
+}
+
+ /*   like       */
+.like-button {
+  position: absolute;
+  z-index: 1000;
+  top: 10px;
+  left: 20px;
+    text-decoration: none;
+    margin-left: -6px;
+    line-height: 24px;
+    font-size: 24px;
+    color: gray;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+  .like-button:hover{
+    color: rgb(59, 59, 226);
+  }
+  .like-button-active {
+    color: rgb(224, 36, 94);
+  }
+  
+
+
+
+
+
+
+
+/* body */
+.listOfFilms{
+   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+}
+.column {
+  flex-direction:column;
+}
+
+.blockOneFilm {
+  position: relative;
+  width: 260px;
+  height: 460px;
+  margin: 40px;
+  list-style-type: none;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  
+}
+.block-Movie-details{
+  position: relative;
+  width: 900px;
+  height: 500px;
+  margin: 30px;
+  list-style-type: none;
+  background: rgb(75, 75, 75);
+  display: flex;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+}
+
+.boxDetail{
+  width: 100%;
+}
+.ulDetail{
+  font-size: 20px;
+  color: white;
+}
+.ulDetail>* {
+  font-weight: 700;
+  color: rgb(247, 175, 43);
+  padding-right: 10px;
+}
+
+
+
+.title-box{
+  color: black;
+  width: 100%;
+  font-size: 32px;
+  display: flex;  
+  justify-content:center;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 15px;
+}
+.title-box :first-child{
+  text-shadow: 1px 1px 2px rgb(255, 166, 0), 0 0 1em , 0 0 0.2em rgb(255, 255, 255);
+  font-size: 42px;
+  font-weight: 700;
+}
+.boxDetail-content{
+  font-size: 18px;
+  color: rgb(255, 145, 0);
+  font-weight: 500;
+}
+
+
+.poster {
+  width: 260px;
+  height: 400px;
+}
+.title {
+  color: white;
+  background: rgb(14, 13, 13);
+  font-weight: 600;
+  width: 100%;
+  height: 60px;
+  font-size: 21px;  
+  display: flex;
+  justify-content:center;
+  align-content:center;
+  align-items: center;
+  text-align: center;
+  overflow-x: hidden;
+  overflow:hidden;
+  
+  
+}
+
+
+.listOfRecommendations{
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.spinner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
