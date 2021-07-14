@@ -6,7 +6,7 @@ import { search } from "./pages/search.js";
 const routes = [
   {
     match: (url) => {
-      return url === "/";
+      return url === "/TheMovieDB-PoC";
     },
     renderRoute: popular,
   },
