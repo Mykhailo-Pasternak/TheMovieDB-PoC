@@ -3,29 +3,28 @@ import { movie } from "./pages/movie.js";
 import { bookmarks } from "./pages/bookmarks.js";
 import { search } from "./pages/search.js";
 
-const baseURL = "/TheMovieDB-PoC";
 const routes = [
   {
     match: (url) => {
-      return url === baseURL + "/";
+      return url === "/";
     },
     renderRoute: popular,
   },
   {
     match: (url) => {
-      return url.includes(baseURL + "/movies");
+      return url.includes("/movies");
     },
     renderRoute: movie,
   },
   {
     match: (url) => {
-      return url.includes(baseURL + "/bookmarks");
+      return url.includes("/bookmarks");
     },
     renderRoute: bookmarks,
   },
   {
     match: (url) => {
-      return url.includes(baseURL + "/search");
+      return url.includes("/search");
     },
     renderRoute: search,
   },
