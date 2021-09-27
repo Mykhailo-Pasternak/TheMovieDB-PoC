@@ -10,7 +10,6 @@ import { spinner } from "../templates/spinner.js";
 export async function movie() {
   const { pathname } = window.location;
   const [, idMovie] = pathname.split("movies/");
-  console.log(" test result:", pathname.split("movies/"));
 
   const data = await Api.fetchMovieDetails(idMovie);
 
