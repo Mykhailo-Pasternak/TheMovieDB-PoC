@@ -76,7 +76,7 @@ export async function movie() {
       window.history.pushState(
         null,
         null,
-        `/movies/${filmElement.dataset.movie_id}`
+        `/TheMovieDB-PoC/movies/${filmElement.dataset.movie_id}`
       );
     }
   });
