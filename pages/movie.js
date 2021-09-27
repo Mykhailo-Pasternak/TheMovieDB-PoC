@@ -8,37 +8,36 @@ import { templateFilmsHTML } from "../templates/templateFilmsHTML.js";
 import { spinner } from "../templates/spinner.js";
 
 export async function movie() {
-    const { pathname } = window.location;
-    const [, idMovie] = pathname.split("movies/");
-    const data = await Api.fetchMovieDetails(idMovie);
+  const { pathname } = window.location;
+  const [, idMovie] = pathname.split("movies/");
+  console.log(" test result:", pathname.split("movies/"));
 
-    const {
-        id,
-        original_title,
-        poster_path,
-        vote_average,
-        genres,
-        overview
-    } = data;
+  const data = await Api.fetchMovieDetails(idMovie);
 
-    const arrFilms = [];
-    header();
-    main();
-    helper();
-    likeListener();
-    const newElem = document.createElement("li");
-    newElem.dataset.movie_id = id;
-    let genresString = "";
-    genres.forEach((genre, ind) => {
-        genresString += genres.length !== ind + 1 ? `${genre.name}, ` : `${genre.name}.`;
-    });
-    const localFilms = window.localStorage.getItem("films");
-    const localStorage = JSON.parse(localFilms);
-    const isLiked = localStorage.find((film) => film.id === id);
+  const { id, original_title, poster_path, vote_average, genres, overview } =
+    data;
 
-    newElem.innerHTML = `  <div class="block-Movie-details">
+  const arrFilms = [];
+  header();
+  main();
+  helper();
+  likeListener();
+  const newElem = document.createElement("li");
+  newElem.dataset.movie_id = id;
+  let genresString = "";
+  genres.forEach((genre, ind) => {
+    genresString +=
+      genres.length !== ind + 1 ? `${genre.name}, ` : `${genre.name}.`;
+  });
+  const localFilms = window.localStorage.getItem("films");
+  const localStorage = JSON.parse(localFilms);
+  const isLiked = localStorage.find((film) => film.id === id);
+
+  newElem.innerHTML = `  <div class="block-Movie-details">
          
-            <img  src="https://image.tmdb.org/t/p/w500${poster_path}" alt=""><span href="#" class="like-button ${isLiked ? "like-button-active" : ""}">
+            <img  src="https://image.tmdb.org/t/p/w500${poster_path}" alt=""><span href="#" class="like-button ${
+    isLiked ? "like-button-active" : ""
+  }">
             <i class="fas fa-heart"></i>
             </span>
             <div class="boxDetail">
@@ -54,27 +53,31 @@ export async function movie() {
             </div>
             `;
 
-    arrFilms.push(newElem);
-    render(arrFilms);
-    spinner();
+  arrFilms.push(newElem);
+  render(arrFilms);
+  spinner();
 
-    const data2 = await Api.fetchMovieRecommendations(idMovie);
-    if (data2) {
-        const spinner = document.querySelector(".spinner");
-        spinner.remove();
+  const data2 = await Api.fetchMovieRecommendations(idMovie);
+  if (data2) {
+    const spinner = document.querySelector(".spinner");
+    spinner.remove();
+  }
+  const arrFilmsHTML = templateFilmsHTML(data2.results);
+  const type = "Recommendation";
+  render(arrFilmsHTML, type);
+
+  const listOfFilmsELEM = document.querySelector(".listOfFilms");
+
+  listOfFilmsELEM.addEventListener("click", (evt) => {
+    const filmElement = evt.target.closest("li");
+    const onImg = evt.target.closest("img");
+
+    if (onImg !== null) {
+      window.history.pushState(
+        null,
+        null,
+        `/movies/${filmElement.dataset.movie_id}`
+      );
     }
-    const arrFilmsHTML = templateFilmsHTML(data2.results);
-    const type = "Recommendation";
-    render(arrFilmsHTML, type);
-
-    const listOfFilmsELEM = document.querySelector(".listOfFilms");
-
-    listOfFilmsELEM.addEventListener("click", (evt) => {
-        const filmElement = evt.target.closest("li");
-        const onImg = evt.target.closest("img");
-
-        if (onImg !== null) {
-            window.history.pushState(null, null, `/movies/${filmElement.dataset.movie_id}`);
-        }
-    });
+  });
 }
