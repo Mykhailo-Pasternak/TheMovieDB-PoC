@@ -30,7 +30,7 @@ export function navPopular() {
   const buttonPopular = document.querySelector("#popular");
   buttonPopular.addEventListener("click", (evt) => {
     if (buttonPopular !== null) {
-      window.history.pushState(null, null, "/TheMovieDB-PoC");
+      window.history.pushState(null, null, "/TheMovieDB-PoC/");
     }
     buttonBookmarks.style = "";
     buttonPopular.style = activeStyle;
